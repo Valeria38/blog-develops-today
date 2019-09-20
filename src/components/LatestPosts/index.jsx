@@ -1,13 +1,20 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getPostsAction } from '../../redux/actionCreators';
+import Post from '../Post';
 
 const LatestPosts = ({ posts, getPosts }) => {
   useEffect(() => {
     getPosts();
   }, [getPosts]);
 
-  return <>{JSON.stringify(posts)}</>;
+  return (
+    <>
+      {posts.map(post => (
+        <Post key={post.id} post={post} />
+      ))}
+    </>
+  );
 };
 
 const mapStateToProps = state => ({

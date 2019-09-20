@@ -9,3 +9,12 @@ export const getPostsAction = () => dispatch => {
     })
   );
 };
+
+export const getPostAction = postId => dispatch => {
+  fetchData(`https://simple-blog-api.crew.red/posts/${postId}`).then(data =>
+    dispatch({
+      type: types.SET_POST,
+      payload: data
+    })
+  );
+};
