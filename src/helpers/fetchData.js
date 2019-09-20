@@ -1,5 +1,11 @@
-const fetchData = url => {
-  return fetch(url).then(response => response.json());
+const fetchData = (url, method = 'GET', value) => {
+  return fetch(url, {
+    method,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(value)
+  }).then(response => response.json());
 };
 
 export default fetchData;

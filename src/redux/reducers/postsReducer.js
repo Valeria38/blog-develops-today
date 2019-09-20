@@ -2,7 +2,8 @@ import * as types from '../types';
 
 const initialState = {
   posts: [],
-  activePost: {}
+  activePost: {},
+  comments: []
 };
 
 const postsReducer = (state = initialState, { type, payload }) => {
@@ -16,6 +17,11 @@ const postsReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         activePost: payload
+      };
+    case types.ADD_COMMENT:
+      return {
+        ...state,
+        comments: [...state.comments, payload]
       };
     default:
       return state;
