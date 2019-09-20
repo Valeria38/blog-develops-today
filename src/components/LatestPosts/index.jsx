@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getPostsAction } from '../../redux/actionCreators';
 
-const LatestPosts = () => {
-  return <>Latest Posts</>;
+const LatestPosts = ({ posts, getPosts }) => {
+  useEffect(() => {
+    getPosts();
+  }, [getPosts]);
+
+  return <>{JSON.stringify(posts)}</>;
 };
 
-export default LatestPosts;
+const mapStateToProps = state => ({
+  posts: state.posts.posts
+});
+
+const mapDispatchToProps = dispatch => ({
+  getPosts: () => dispatch(getPostsAction())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LatestPosts);

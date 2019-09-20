@@ -6,7 +6,7 @@ import PostDetails from '../PostDetails';
 const Blog = () => {
   return (
     <>
-      <Route exact path='/' component={LatestPosts} />
+      <Route exact path='/posts' component={LatestPosts} />
       <Route exact path='/posts/:postId' component={PostDetails} />
     </>
   );
