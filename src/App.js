@@ -1,7 +1,12 @@
 import React from 'react';
+import Blog from './components/Blog';
 
 function App() {
-  return <div>Initial</div>;
+  return (
+    <div>
+      <Blog />
+    </div>
+  );
 }
 
 export default App;
