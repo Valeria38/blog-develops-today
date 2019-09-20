@@ -23,6 +23,11 @@ const postsReducer = (state = initialState, { type, payload }) => {
         ...state,
         comments: [...state.comments, payload]
       };
+    case types.ADD_NEW_POST:
+      return {
+        ...state,
+        posts: [...state.posts, payload]
+      };
     default:
       return state;
   }

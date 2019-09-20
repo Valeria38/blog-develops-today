@@ -28,3 +28,13 @@ export const addCommentAction = comment => dispatch => {
       })
   );
 };
+
+export const createPostAction = newPost => dispatch => {
+  fetchData(`https://simple-blog-api.crew.red/posts`, 'POST', newPost).then(
+    data =>
+      dispatch({
+        type: types.ADD_NEW_POST,
+        payload: data
+      })
+  );
+};
