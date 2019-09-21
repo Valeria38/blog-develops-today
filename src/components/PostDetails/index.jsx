@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { getPostAction, addCommentAction } from '../../redux/actionCreators';
-import {
-  Header,
-  Section,
-  Text,
-  TextArea,
-  Button,
-  Span,
-  Comment
-} from './styled.js';
+import { Header, Section, Text, TextArea, Button, Comment } from './styled.js';
 
 const PostDetails = props => {
   const { postId } = props.match.params;
   const { showPost, post, addComment, comments } = props;
   const [comment, setComment] = useState('');
-  console.log(post);
+
   useEffect(() => {
     showPost(postId);
   }, [showPost, postId]);

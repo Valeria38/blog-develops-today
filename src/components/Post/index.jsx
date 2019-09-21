@@ -2,7 +2,7 @@ import React from 'react';
 import { Section, Text } from './styled';
 import { Link } from 'react-router-dom';
 
-const Post = ({ post, showPost }) => {
+const Post = ({ post }) => {
   return (
     <>
       <Section>
