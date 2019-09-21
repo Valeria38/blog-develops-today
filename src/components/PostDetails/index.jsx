@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { getPostAction, addCommentAction } from '../../redux/actionCreators';
-import './style.css';
+import {
+  Header,
+  Section,
+  Text,
+  TextArea,
+  Button,
+  Span,
+  Comment
+} from './styled.js';
 
 const PostDetails = props => {
   const { postId } = props.match.params;
   const { showPost, post, addComment, comments } = props;
   const [comment, setComment] = useState('');
-
+  console.log(post);
   useEffect(() => {
     showPost(postId);
   }, [showPost, postId]);
@@ -19,20 +27,23 @@ const PostDetails = props => {
 
   return (
     <>
-      <h2>Post Details: </h2>
-      <p>{post.title}</p>
-      <p>{post.body}</p>
-      <p>Comments: </p>
-      <textarea
-        value={comment}
-        onChange={event => setComment(event.target.value)}
-      ></textarea>
-      <br />
-      <button onClick={sendComment}>Add comment</button>
+      <Section>
+        <Header>Post Details: </Header>
+        <Text>
+          Title: <span>{post.title}</span>
+        </Text>
+        <Text>
+          Text: <span>{post.body}</span>
+        </Text>
+        <Text>Comments: </Text>
+        <TextArea
+          value={comment}
+          onChange={event => setComment(event.target.value)}
+        ></TextArea>
+        <Button onClick={sendComment}>Add comment</Button>
+      </Section>
       {comments.map(comment => (
-        <div className='post-details__comment' key={comment.id}>
-          {comment.value}
-        </div>
+        <Comment key={comment.id}>{comment.value}</Comment>
       ))}
     </>
   );

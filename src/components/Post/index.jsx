@@ -1,15 +1,17 @@
 import React from 'react';
-import './style.css';
-import { NavLink } from 'react-router-dom';
+import { Section, Text } from './styled';
+import { Link } from 'react-router-dom';
 
 const Post = ({ post, showPost }) => {
   return (
-    <NavLink to={`/posts/${post.id}`}>
-      <div className='post'>
-        <p>Title: {post.title}</p>
-        <p>Body: {post.body}</p>
-      </div>
-    </NavLink>
+    <>
+      <Section>
+        <Link style={{ textDecoration: 'none' }} to={`/posts/${post.id}`}>
+          <Text>Title: {post.title}</Text>
+          <Text>Body: {post.body}</Text>
+        </Link>
+      </Section>
+    </>
   );
 };
 export default Post;

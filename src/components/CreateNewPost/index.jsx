@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createPostAction } from '../../redux/actionCreators';
+import { Form, Label, Input, Button, Section, Header, Text } from './styled';
 
 const CreateNewPost = ({ createPost, newPost }) => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [isCreated, setIsCreated] = useState(false);
-  console.log(newPost);
-
-  useEffect(() => {
-    if (newPost) {
-      setIsCreated(true);
-    }
-  }, [newPost]);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -22,33 +16,38 @@ const CreateNewPost = ({ createPost, newPost }) => {
     });
     setTitle('');
     setBody('');
+    setIsCreated(true);
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <input
+      <Form onSubmit={handleSubmit}>
+        <Label>
+          Post title:
+          <Input
             type='text'
             value={title}
             onChange={event => setTitle(event.target.value)}
           />
-        </label>
-        <label>
-          <input
+        </Label>
+        <Label>
+          Post text:
+          <Input
             type='text'
             value={body}
             onChange={event => setBody(event.target.value)}
           />
-        </label>
-        <button>Add post</button>
-      </form>
-      {isCreated && (
-        <>
-          <h1>New post was successfully created with following data: </h1>
-          <p>Title: {newPost.title}</p>
-          <p>Body: {newPost.body}</p>
-        </>
+        </Label>
+        <Button>Add post</Button>
+      </Form>
+      {isCreated && newPost && (
+        <Section>
+          <Header>
+            New post was successfully created with the following data:{' '}
+          </Header>
+          <Text>Title: {newPost.title}</Text>
+          <Text>Body: {newPost.body}</Text>
+        </Section>
       )}
     </>
   );
