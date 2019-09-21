@@ -21,6 +21,7 @@ export const Header = styled.h2`
 
 export const Text = styled.p`
   font-size: 18px;
+  text-align: center;
 `;
 
 export const TextArea = styled.textarea`

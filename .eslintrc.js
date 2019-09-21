@@ -18,7 +18,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     semi: ['error', 'always'],
-    quotes: ['error', 'single'],
+    quotes: ['error', 'single', 'backtick'],
     'no-console': 2,
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error'

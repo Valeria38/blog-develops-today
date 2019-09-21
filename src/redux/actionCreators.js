@@ -38,3 +38,10 @@ export const createPostAction = newPost => dispatch => {
       })
   );
 };
+
+export const setAuthorAction = author => {
+  return {
+    type: types.SET_AUTHOR,
+    payload: author
+  };
+};

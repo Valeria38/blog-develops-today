@@ -17,7 +17,7 @@ const PostDetails = props => {
     setComment('');
   };
 
-  return (
+  return post.title ? (
     <>
       <Section>
         <Header>Post Details: </Header>
@@ -38,6 +38,8 @@ const PostDetails = props => {
         <Comment key={comment.id}>{comment.value}</Comment>
       ))}
     </>
+  ) : (
+    <Text>There is no post with this id.</Text>
   );
 };
 
