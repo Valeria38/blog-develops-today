@@ -7,6 +7,6 @@
 
 ## Routers:
 
-/ - all posts
-/create-post - create new post page
-/posts/postId - post details page
+- / - all posts
+- /create-post - create new post page
+- /posts/postId - post details page
