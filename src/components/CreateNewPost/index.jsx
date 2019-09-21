@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { createPostAction, setAuthorAction } from '../../redux/actionCreators';
-import { Form, Label, Input, Button, Section, Header, Text } from './styled';
+import {
+  Form,
+  Label,
+  Input,
+  Button,
+  Section,
+  Header,
+  Text,
+  ArrowBack
+} from './styled';
 
 const CreateNewPost = ({
   createPost,
@@ -13,9 +23,16 @@ const CreateNewPost = ({
   const [body, setBody] = useState('');
   const [isCreated, setIsCreated] = useState(false);
   const [author, setAuthor] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = event => {
     event.preventDefault();
+
+    if (!title || !body) {
+      setError('You cant create an empty post');
+      return;
+    }
+
     createPost({
       title,
       body
@@ -26,11 +43,17 @@ const CreateNewPost = ({
     setTitle('');
     setBody('');
     setAuthor('');
+    setError('');
     setIsCreated(true);
   };
 
   return (
     <>
+      <ArrowBack>
+        <Link style={{ textDecoration: 'none', color: '#fff' }} to='/'>
+          Back to posts
+        </Link>
+      </ArrowBack>
       <Form onSubmit={handleSubmit}>
         <Label>
           Author:
@@ -58,6 +81,7 @@ const CreateNewPost = ({
         </Label>
         <Button>Add post</Button>
       </Form>
+      {error && <Text>{error}</Text>}
       {isCreated && newPost && (
         <Section>
           <Header>

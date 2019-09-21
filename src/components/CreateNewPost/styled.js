@@ -1,5 +1,19 @@
 import styled from 'styled-components';
 
+export const ArrowBack = styled.div`
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 140px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  background: #808080;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+`;
+
 export const Form = styled.form`
   margin: 30px auto;
   padding: 20px;
@@ -61,4 +75,5 @@ export const Header = styled.h1`
 export const Text = styled.p`
   font-size: 22px;
   margin: 5px;
+  text-align: center;
 `;

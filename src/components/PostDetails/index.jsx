@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { getPostAction, addCommentAction } from '../../redux/actionCreators';
-import { Header, Section, Text, TextArea, Button, Comment } from './styled.js';
+import { Link } from 'react-router-dom';
+import {
+  Header,
+  Section,
+  Text,
+  TextArea,
+  Button,
+  Comment,
+  ArrowBack
+} from './styled.js';
 
 const PostDetails = props => {
   const { postId } = props.match.params;
@@ -19,6 +28,11 @@ const PostDetails = props => {
 
   return post.title ? (
     <>
+      <ArrowBack>
+        <Link style={{ textDecoration: 'none', color: '#fff' }} to='/'>
+          Back to posts
+        </Link>
+      </ArrowBack>
       <Section>
         <Header>Post Details: </Header>
         <Text>
