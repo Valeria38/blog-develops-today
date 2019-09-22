@@ -16,6 +16,7 @@ import ArrowLeft from '../Arrow';
 const PostDetails = props => {
   const { postId } = props.match.params;
   const { showPost, post, addComment, comments } = props;
+
   const [comment, setComment] = useState('');
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const PostDetails = props => {
     setComment('');
   };
 
-  return post.title ? (
+  return post.title || post.body ? (
     <>
       <ArrowBack>
         <ArrowLeft />
