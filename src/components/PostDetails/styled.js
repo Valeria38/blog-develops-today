@@ -39,10 +39,34 @@ export const Text = styled.p`
 `;
 
 export const TextArea = styled.textarea`
-  width: 300px;
+  width: 60%;
   height: 80px;
   resize: none;
   margin: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-top: 10px;
+  &:focus {
+    border: 1px solid #7b68ee;
+    border-radius: 5px;
+    outline: none;
+  }
+`;
+
+export const Input = styled.input`
+  width: 60%;
+  height: 30px;
+  line-height: 30px;
+  margin: 10px 0;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding-left: 10px;
+  &:focus {
+    border: 1px solid #7b68ee;
+    border-radius: 5px;
+    outline: none;
+  }
 `;
 
 export const Button = styled.button`
@@ -56,11 +80,9 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-export const Comment = styled.section`
-  width: 520px;
-  margin: 20px auto;
-  border: 1px solid #dcdcdc;
-  color: #333;
-  border-radius: 5px;
-  padding: 20px 10px;
+export const Error = styled.p`
+  text-align: center;
+  color: tomato;
+  font-size: 20px;
+  font-weight: 500;
 `;

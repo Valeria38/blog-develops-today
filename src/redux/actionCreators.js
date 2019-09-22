@@ -19,14 +19,18 @@ export const getPostAction = postId => dispatch => {
   );
 };
 
-export const addCommentAction = comment => dispatch => {
-  fetchData(`https://simple-blog-api.crew.red/comments`, 'POST', comment).then(
-    data =>
-      dispatch({
-        type: types.ADD_COMMENT,
-        payload: data
-      })
-  );
+export const addCommentAction = commentObject => dispatch => {
+  console.log(commentObject);
+  fetchData(
+    `https://simple-blog-api.crew.red/comments`,
+    'POST',
+    commentObject
+  ).then(data => {
+    dispatch({
+      type: types.ADD_COMMENT,
+      payload: { comment: data.body, postId: data.postId, id: data.id }
+    });
+  });
 };
 
 export const createPostAction = newPost => dispatch => {

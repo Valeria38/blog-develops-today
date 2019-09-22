@@ -10,7 +10,8 @@ import {
   Section,
   Header,
   Text,
-  ArrowBack
+  ArrowBack,
+  Error
 } from './styled';
 import ArrowLeft from '../Arrow';
 
@@ -30,7 +31,8 @@ const CreateNewPost = ({
     event.preventDefault();
 
     if (!title || !body) {
-      setError('You cant create an empty post');
+      setError("You can't create an empty post");
+      setIsCreated(false);
       return;
     }
 
@@ -86,7 +88,7 @@ const CreateNewPost = ({
         </Label>
         <Button>Add post</Button>
       </Form>
-      {error && <Text>{error}</Text>}
+      {error && <Error>{error}</Error>}
       {isCreated && newPost && (
         <Section>
           <Header>
