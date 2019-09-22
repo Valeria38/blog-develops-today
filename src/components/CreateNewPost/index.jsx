@@ -12,6 +12,7 @@ import {
   Text,
   ArrowBack
 } from './styled';
+import ArrowLeft from '../Arrow';
 
 const CreateNewPost = ({
   createPost,
@@ -50,7 +51,11 @@ const CreateNewPost = ({
   return (
     <>
       <ArrowBack>
-        <Link style={{ textDecoration: 'none', color: '#fff' }} to='/'>
+        <ArrowLeft />
+        <Link
+          style={{ textDecoration: 'none', color: '#fff', marginLeft: '10px' }}
+          to='/'
+        >
           Back to posts
         </Link>
       </ArrowBack>

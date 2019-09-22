@@ -11,6 +11,7 @@ import {
   Comment,
   ArrowBack
 } from './styled.js';
+import ArrowLeft from '../Arrow';
 
 const PostDetails = props => {
   const { postId } = props.match.params;
@@ -29,7 +30,11 @@ const PostDetails = props => {
   return post.title ? (
     <>
       <ArrowBack>
-        <Link style={{ textDecoration: 'none', color: '#fff' }} to='/'>
+        <ArrowLeft />
+        <Link
+          style={{ textDecoration: 'none', color: '#fff', marginLeft: '10px' }}
+          to='/'
+        >
           Back to posts
         </Link>
       </ArrowBack>

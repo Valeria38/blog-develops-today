@@ -4,14 +4,16 @@ export const ArrowBack = styled.div`
   position: fixed;
   top: 20px;
   left: 20px;
-  width: 140px;
+  width: 160px;
   height: 40px;
   line-height: 40px;
-  border-radius: 5px;
-  background: #808080;
+  background: #555;
   color: #fff;
   text-align: center;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Form = styled.form`
@@ -21,9 +23,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 5px;
-  background: #dcdcdc;
-  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid #555;
 `;
 
 export const Label = styled.label`
