@@ -16,15 +16,4 @@ describe('postsReducer', () => {
     const newState = { ...initialState, posts };
     expect(updatedWithPosts).toEqual(newState);
   });
-
-  it('updates author', () => {
-    const author = 'John Doe';
-
-    const updatedWithPosts = postsReducer(initialState, {
-      type: 'SET_AUTHOR',
-      payload: author
-    });
-    const newState = { ...initialState, author };
-    expect(updatedWithPosts).toEqual(newState);
-  });
 });

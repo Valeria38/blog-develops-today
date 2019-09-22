@@ -21,7 +21,7 @@ import ArrowLeft from '../Arrow';
 
 const PostDetails = props => {
   const { postId } = props.match.params;
-  const { showPost, post, addComment, comments, setAuthor } = props;
+  const { showPost, post, addComment, comments } = props;
 
   const [comment, setComment] = useState('');
   const [error, setError] = useState('');
@@ -37,8 +37,8 @@ const PostDetails = props => {
     if (comment) {
       setError('');
 
-      addComment({ postId, body: comment });
-      setAuthor(authorValue);
+      addComment({ postId, body: comment, author: authorValue });
+
       setComment('');
       setAuthorValue('');
     } else {
@@ -79,7 +79,7 @@ const PostDetails = props => {
       </Section>
       {error && <Error>{error}</Error>}
       {postComments.map(comment => (
-        <Comment key={comment.id} comment={comment.comment} />
+        <Comment key={comment.id} comment={comment.comment} id={comment.id} />
       ))}
     </>
   ) : (

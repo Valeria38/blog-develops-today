@@ -3,8 +3,7 @@ import * as types from '../types';
 export const initialState = {
   posts: [],
   activePost: {},
-  comments: [],
-  author: ''
+  comments: []
 };
 
 const postsReducer = (state = initialState, { type, payload }) => {
@@ -28,11 +27,6 @@ const postsReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         posts: [...state.posts, payload]
-      };
-    case types.SET_AUTHOR:
-      return {
-        ...state,
-        author: payload
       };
     default:
       return state;

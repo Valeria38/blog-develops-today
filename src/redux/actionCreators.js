@@ -20,7 +20,6 @@ export const getPostAction = postId => dispatch => {
 };
 
 export const addCommentAction = commentObject => dispatch => {
-  console.log(commentObject);
   fetchData(
     `https://simple-blog-api.crew.red/comments`,
     'POST',
@@ -28,7 +27,12 @@ export const addCommentAction = commentObject => dispatch => {
   ).then(data => {
     dispatch({
       type: types.ADD_COMMENT,
-      payload: { comment: data.body, postId: data.postId, id: data.id }
+      payload: {
+        comment: data.body,
+        postId: data.postId,
+        id: data.id,
+        author: data.author
+      }
     });
   });
 };
