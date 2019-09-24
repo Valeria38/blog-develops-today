@@ -15,7 +15,10 @@ import {
   Input,
   Button,
   ArrowBack,
-  Error
+  Error,
+  CommentContainer,
+  Label,
+  Line
 } from './styled.js';
 import ArrowLeft from '../Arrow';
 
@@ -58,25 +61,25 @@ const PostDetails = props => {
         </Link>
       </ArrowBack>
       <Section>
-        <Header>Post Details: </Header>
-        <Text>
-          Title: <span>{post.title}</span>
-        </Text>
-        <Text>
-          Text: <span>{post.body}</span>
-        </Text>
-        <Text>Your name:</Text>
+        <Header>{post.title}</Header>
+        <Text>{post.body}</Text>
+      </Section>
+      <Line />
+      <CommentContainer>
+        <Label htmlFor='authorField'>Your name:</Label>
         <Input
           value={authorValue}
           onChange={event => setAuthorValue(event.target.value)}
+          id='authorField'
         />
-        <Text>Leave comment: </Text>
+        <Label htmlFor='commentField'>Leave comment:</Label>
         <TextArea
           value={comment}
           onChange={event => setComment(event.target.value)}
+          id='commentField'
         ></TextArea>
         <Button onClick={sendComment}>Add comment</Button>
-      </Section>
+      </CommentContainer>
       {error && <Error>{error}</Error>}
       {postComments.map(comment => (
         <Comment key={comment.id} comment={comment.comment} id={comment.id} />

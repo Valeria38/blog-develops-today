@@ -17,14 +17,15 @@ export const ArrowBack = styled.div`
 `;
 
 export const Section = styled.section`
-  margin: 30px auto;
+  margin: 50px auto;
   padding: 20px;
-  width: 500px;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #555;
   border: 1px solid #555;
+  box-sizing: border-box;
 `;
 
 export const Header = styled.h2`
@@ -70,7 +71,7 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  margin: 20px 0;
+  margin: 10px 0;
   height: 30px;
   width: 100px;
   background: #7b68ee;
@@ -85,4 +86,27 @@ export const Error = styled.p`
   color: tomato;
   font-size: 20px;
   font-weight: 500;
+`;
+
+export const CommentContainer = styled.section`
+  margin: 0px auto;
+  padding-top: 20px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #555;
+`;
+
+export const Label = styled.label`
+  font-size: 18px;
+  text-align: center;
+  display: block;
+`;
+
+export const Line = styled.hr`
+  width: 80%;
+  background-color: #666;
+  height: 2px;
+  margin: 0 auto 20px;
 `;
