@@ -5,8 +5,8 @@ import {
   addCommentAction,
   setAuthorAction
 } from '../../redux/actionCreators';
-import { Link } from 'react-router-dom';
 import Comment from '../Comment';
+import ArrowBack from '../ArrowBack';
 import {
   Header,
   Section,
@@ -14,13 +14,11 @@ import {
   TextArea,
   Input,
   Button,
-  ArrowBack,
   Error,
   CommentContainer,
   Label,
   Line
 } from './styled.js';
-import ArrowLeft from '../Arrow';
 
 const PostDetails = props => {
   const { postId } = props.match.params;
@@ -51,15 +49,7 @@ const PostDetails = props => {
 
   return post.title || post.body ? (
     <>
-      <ArrowBack>
-        <ArrowLeft />
-        <Link
-          style={{ textDecoration: 'none', color: '#fff', marginLeft: '10px' }}
-          to='/'
-        >
-          Back to posts
-        </Link>
-      </ArrowBack>
+      <ArrowBack>Back to posts</ArrowBack>
       <Section>
         <Header>{post.title}</Header>
         <Text>{post.body}</Text>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { createPostAction, setAuthorAction } from '../../redux/actionCreators';
+import ArrowBack from '../ArrowBack';
 import {
   Form,
   Label,
@@ -10,10 +10,8 @@ import {
   Section,
   Header,
   Text,
-  ArrowBack,
   Error
 } from './styled';
-import ArrowLeft from '../Arrow';
 
 const CreateNewPost = ({
   createPost,
@@ -52,15 +50,7 @@ const CreateNewPost = ({
 
   return (
     <>
-      <ArrowBack>
-        <ArrowLeft />
-        <Link
-          style={{ textDecoration: 'none', color: '#fff', marginLeft: '10px' }}
-          to='/'
-        >
-          Back to posts
-        </Link>
-      </ArrowBack>
+      <ArrowBack>Back to posts</ArrowBack>
       <Form onSubmit={handleSubmit}>
         <Label>
           Author:

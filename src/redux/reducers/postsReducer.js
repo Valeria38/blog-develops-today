@@ -1,6 +1,4 @@
 import * as types from '../types';
-import { tsExpressionWithTypeArguments } from '@babel/types';
-import { addCommentAction } from '../actionCreators';
 
 export const initialState = {
   posts: [],
