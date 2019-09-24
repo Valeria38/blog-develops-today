@@ -7,26 +7,14 @@ import {
 } from '../../redux/actionCreators';
 import Comment from '../Comment';
 import ArrowBack from '../ArrowBack';
-import {
-  Header,
-  Section,
-  Text,
-  TextArea,
-  Input,
-  Button,
-  Error,
-  CommentContainer,
-  Label,
-  Line
-} from './styled.js';
+import CommentForm from '../CommentForm';
+import { Header, Section, Text, Error, Line } from './styled.js';
 
 const PostDetails = props => {
   const { postId } = props.match.params;
-  const { showPost, post, addComment, comments } = props;
+  const { showPost, post, comments, addComment } = props;
 
-  const [comment, setComment] = useState('');
   const [error, setError] = useState('');
-  const [authorValue, setAuthorValue] = useState('');
 
   const postComments = comments.filter(comment => comment.postId === postId);
 
@@ -34,14 +22,10 @@ const PostDetails = props => {
     showPost(postId);
   }, [showPost, postId]);
 
-  const sendComment = () => {
+  const sendComment = (comment, authorValue) => {
     if (comment) {
       setError('');
-
       addComment({ postId, body: comment, author: authorValue });
-
-      setComment('');
-      setAuthorValue('');
     } else {
       setError("You can't leave an empty comment");
     }
@@ -55,21 +39,7 @@ const PostDetails = props => {
         <Text>{post.body}</Text>
       </Section>
       <Line />
-      <CommentContainer>
-        <Label htmlFor='authorField'>Your name:</Label>
-        <Input
-          value={authorValue}
-          onChange={event => setAuthorValue(event.target.value)}
-          id='authorField'
-        />
-        <Label htmlFor='commentField'>Leave comment:</Label>
-        <TextArea
-          value={comment}
-          onChange={event => setComment(event.target.value)}
-          id='commentField'
-        ></TextArea>
-        <Button onClick={sendComment}>Add comment</Button>
-      </CommentContainer>
+      <CommentForm sendComment={sendComment} />
       {error && <Error>{error}</Error>}
       {postComments.map(comment => (
         <Comment key={comment.id} comment={comment.comment} id={comment.id} />
