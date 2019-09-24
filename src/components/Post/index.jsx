@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section, Text } from './styled';
+import { Section, Text, Title } from './styled';
 import { Link } from 'react-router-dom';
 
 const Post = ({ post }) => {
@@ -7,8 +7,8 @@ const Post = ({ post }) => {
     <>
       <Section>
         <Link style={{ textDecoration: 'none' }} to={`/posts/${post.id}`}>
-          <Text>Title: {post.title}</Text>
-          <Text>Body: {post.body}</Text>
+          <Title>{post.title}</Title>
+          <Text>{post.body}</Text>
         </Link>
       </Section>
     </>

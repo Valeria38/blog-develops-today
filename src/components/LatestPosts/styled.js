@@ -13,5 +13,5 @@ export const Posts = styled.div`
   align-items: center;
   margin-bottom: 30px;
   padding: 10px 0 30px 0;
-  border: 1px solid black;
+  border: 2px solid #aaa;
 `;
