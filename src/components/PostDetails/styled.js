@@ -31,7 +31,7 @@ export const Error = styled.p`
 `;
 
 export const Line = styled.hr`
-  width: 80%;
+  width: 74%;
   background-color: #666;
   height: 2px;
   margin: 0 auto 20px;

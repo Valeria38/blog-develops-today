@@ -7,7 +7,7 @@ export const Section = styled.section`
 `;
 
 export const Posts = styled.div`
-  width: 1000px;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,4 +1,4 @@
-const fetchData = (url, method = 'GET', value) => {
+export const fetchData = (url, method = 'GET', value) => {
   return fetch(url, {
     method,
     headers: {
@@ -7,5 +7,3 @@ const fetchData = (url, method = 'GET', value) => {
     body: JSON.stringify(value)
   }).then(response => response.json());
 };
-
-export default fetchData;

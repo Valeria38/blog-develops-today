@@ -26,7 +26,11 @@ const LatestPosts = ({ posts, getPosts }) => {
           lineHeight: '40px',
           width: '180px',
           textAlign: 'center',
-          border: '1px solid #000'
+          border: '1px solid #ccc',
+          borderRadius: '5px',
+          background: '#ddd',
+          cursor: 'pointer',
+          textShadow: '2px 4px 4px #fff'
         }}
         to='create-post'
       >

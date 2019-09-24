@@ -1,5 +1,5 @@
 import * as types from './types';
-import fetchData from '../helpers/fetchData';
+import { fetchData } from '../helpers';
 
 export const getPostsAction = () => dispatch => {
   fetchData('https://simple-blog-api.crew.red/posts').then(data =>
