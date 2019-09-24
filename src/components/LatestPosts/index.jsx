@@ -1,20 +1,24 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getPostsAction } from '../../redux/actionCreators';
+import { getPostsAction, deletePostAction } from '../../redux/actionCreators';
 import Post from '../Post';
 import { NavLink } from 'react-router-dom';
 import { Section, Posts } from './styled';
 
-const LatestPosts = ({ posts, getPosts }) => {
+const LatestPosts = ({ posts, getPosts, deletePost }) => {
   useEffect(() => {
     getPosts();
   }, [getPosts]);
+
+  const handleDelete = postId => {
+    deletePost(postId);
+  };
 
   return (
     <Section>
       <Posts>
         {posts.map(post => (
-          <Post key={post.id} post={post} />
+          <Post key={post.id} post={post} handleDelete={handleDelete} />
         ))}
       </Posts>
       <NavLink
@@ -42,7 +46,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getPosts: () => dispatch(getPostsAction())
+  getPosts: () => dispatch(getPostsAction()),
+  deletePost: postId => dispatch(deletePostAction(postId))
 });
 
 export default connect(

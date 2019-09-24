@@ -47,6 +47,17 @@ export const createPostAction = newPost => dispatch => {
   );
 };
 
+export const deletePostAction = postId => dispatch => {
+  fetchData(`https://simple-blog-api.crew.red/posts/${postId}`, 'DELETE')
+    .then(() => fetchData('https://simple-blog-api.crew.red/posts'))
+    .then(data => {
+      dispatch({
+        type: types.SET_POSTS,
+        payload: data
+      });
+    });
+};
+
 export const setAuthorAction = author => {
   return {
     type: types.SET_AUTHOR,

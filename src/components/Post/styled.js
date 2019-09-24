@@ -6,6 +6,7 @@ export const Section = styled.section`
   padding: 0 20px;
   margin: 20px 0 0;
   border-right: 3px solid #ddd;
+  position: relative;
 `;
 
 export const Text = styled.p`
@@ -16,4 +17,17 @@ export const Title = styled.h2`
   color: #7b68ee;
   font-weight: 500;
   font-size: 20px;
+`;
+export const DeleteIcon = styled.span`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: tomato;
+  font-weight: 500;
+  font-size: 18px;
+  margin-left: 30px;
+  &:hover {
+    cursor: pointer;
+    color: crimson;
+  }
 `;
